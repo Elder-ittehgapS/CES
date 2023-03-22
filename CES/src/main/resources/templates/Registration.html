@@ -58,23 +58,20 @@
 
       <p><span class="required">*</span> Required fields</p>
 
-      <label for="card-type">Card Type:</label>
-      <select id="card-type" name="card-type">
-        <option value="">--Please select--</option>
-        <option value="visa">Visa</option>
-        <option value="mastercard">Mastercard</option>
-        <option value="amex">American Express</option>
-        <option value="discover">Discover</option>
-      </select>
+        <div th:object="${paymentCard}">
+            <label for="cardNumber">Credit Card Number:</label>
+            <input type="text" th:field="*{cardNumber}" id="cardNumber" name="cardNumber" required placeholder="Enter card number"/>
 
-      <label for="card-number">Card Number:</label>
-      <input type="text" id="card-number" name="card-number">
+            <label for="expiration">Expiration Date:</label>
+            <input type="text" th:field="*{expirationDate}" id="expiration" name="expiration" required placeholder="Expiration date (MM/YY)"/>
 
-      <label for="expiration-date">Expiration Date:</label>
-      <input type="text" id="expiration-date" name="expiration-date">
+            <label for="cardType">Card Type:</label>
+            <input type="text"th:field="*{cardType}"  id="cardType" name="cardType" required placeholder="Enter card type"/>
+        </div>
+
         <div th:object="${address}">
           <label for="streetNumber">Street Number:</label>
-          <input type="text"  th:field="*{streetNumber}"id="streetNumber" name="streetNumber">
+          <input type="text"  th:field="*{streetNumber}" id="streetNumber" name="streetNumber">
 
           <label for="streetName">Street Name:</label>
           <input type="text" th:field="*{streetName}" id="streetName" name="streetName">
