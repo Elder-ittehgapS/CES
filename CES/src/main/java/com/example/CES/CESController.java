@@ -38,11 +38,27 @@ public class CESController {
         return model;
     }
 
+    @RequestMapping("/account/addcard")
+    public String addCard(Model model) {
+        model.addAttribute("paymentCard", new PaymentCard());
+        model.addAttribute("address", new Address());
+        return "addCard";
+    }
+
     @RequestMapping("/register")
     public String register(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("paymentCard", new PaymentCard());
         model.addAttribute("address", new Address());
         return "Registration";
+    }
+
+    @PostMapping("/addPaymentCard")
+    public String processAddCard(PaymentCard card, Address address) {
+
+
+        addressRepo.save(address);
+        return "account";
     }
 
     @PostMapping("/process_register")

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema E-Booking Add Payment Card</title>
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Cinema E-Booking</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">
+                    <span class="nav-dropdown-line"></span>
+                    <span class="nav-dropdown-line"></span>
+                    <span class="nav-dropdown-line"></span>
+                </button>
+                <div class="nav-dropdown-content">
+                    <a href="/logout" >Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Cinema E-Booking Login</h1>
+        <form method="post" role="form" th:action="@{/addPaymentCard}">
+            <h3>Credit Card Information</h3>
+            <div th:object="${paymentCard}">
+                <label for="cardNumber">Credit Card Number:</label>
+                <input type="text" th:field="*{cardNumber}" id="cardNumber" name="cardNumber" required placeholder="Enter card number"/>
+
+                <label for="expiration">Expiration Date:</label>
+                <input type="text" th:field="*{expirationDate}" id="expiration" name="expiration" required placeholder="Expiration date (MM/YY)"/>
+
+                <label for="cardType">Card Type:</label>
+                <input type="text"th:field="*{cardType}"  id="cardType" name="cardType" required placeholder="Enter card type"/>
+            </div>
+            <br>
+
+            <h3>Billing Address</h3>
+            <div th:object="${address}">
+                <label for="streetNumber">Street Number:</label>
+                <input type="text"  th:field="*{streetNumber}"id="streetNumber" name="streetNumber">
+
+                <label for="streetName">Street Name:</label>
+                <input type="text" th:field="*{streetName}" id="streetName" name="streetName">
+
+                <label for="city">City:</label>
+                <input type="text" th:field="*{city}" id="city" name="city">
+
+                <label for="state">State:</label>
+                <input type="text" th:field="*{state}" id="state" name="state">
+
+                <label for="zip-code">Zip Code:</label>
+                <input type="text" th:field="*{zipCode}" id="zip-code" name="zip-code">
+            </div>
+
+            <button href="/account" type="submit">Login</button>
+
+        </form>
+        <a href="/account"> Cancel </a>
+    </div>
+</body>
+</html>
