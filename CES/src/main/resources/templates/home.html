@@ -8,29 +8,29 @@
     <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
-<nav>
-    <div class="nav-container">
-        <a href="#" class="logo">Cinema E-Booking</a>
-        <!--      TODO: add back to home button-->
-        <div class="nav-dropdown">
-            <button class="nav-dropdown-btn">
-                <span class="nav-dropdown-line"></span>
-                <span class="nav-dropdown-line"></span>
-                <span class="nav-dropdown-line"></span>
-            </button>
-            <div class="nav-dropdown-content">
-                <div sec:authorize="isAuthenticated()">
-                    <a href="/logout">Login</a>
-                    <a href="/account">Register</a>
-                </div>
-                <div sec:authorize="isAnonymous()">
-                    <a href="/login">Login</a>
-                    <a href="/register">Register</a>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Cinema E-Booking</a>
+            <!--      TODO: add back to home button-->
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">
+                    <span class="nav-dropdown-line"></span>
+                    <span class="nav-dropdown-line"></span>
+                    <span class="nav-dropdown-line"></span>
+                </button>
+                <div class="nav-dropdown-content">
+                    <div sec:authorize="isAuthenticated()">
+                        <a href="/logout">Logout</a>
+                        <a href="/account">Account</a>
+                    </div>
+                    <div sec:authorize="isAnonymous()">
+                        <a href="/login">Login</a>
+                        <a href="/register">Register</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <div id="searchopts">
         <div class="filter">
